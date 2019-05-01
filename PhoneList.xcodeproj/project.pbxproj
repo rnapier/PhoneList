@@ -17,7 +17,6 @@
 		FB10D2CC2279F416008038EA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2CA2279F416008038EA /* AddContactViewController.swift */; };
 		FB10D2CD2279F416008038EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2CB2279F416008038EA /* AddContactViewController.xib */; };
 		FB10D2D22279FBBB008038EA /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2D02279FBBB008038EA /* ContactCell.swift */; };
-		FB10D2D32279FBBB008038EA /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2D12279FBBB008038EA /* ContactCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		FB10D2CA2279F416008038EA /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		FB10D2CB2279F416008038EA /* AddContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
 		FB10D2D02279FBBB008038EA /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		FB10D2D12279FBBB008038EA /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				FB10D2B42279EF61008038EA /* AppDelegate.swift */,
-				FB10D2D02279FBBB008038EA /* ContactCell.swift */,
-				FB10D2D12279FBBB008038EA /* ContactCell.xib */,
-				FB10D2B62279EF61008038EA /* ContactsViewController.swift */,
-				FB10D2CA2279F416008038EA /* AddContactViewController.swift */,
-				FB10D2CB2279F416008038EA /* AddContactViewController.xib */,
+				FB10D2D5227A00FD008038EA /* Contact */,
 				FB10D2B82279EF61008038EA /* FamilyViewController.swift */,
 				FB10D2C82279EFB1008038EA /* Models.swift */,
 				FB10D2BA2279EF61008038EA /* Main.storyboard */,
@@ -80,6 +74,17 @@
 				FB10D2C22279EF62008038EA /* Info.plist */,
 			);
 			path = PhoneList;
+			sourceTree = "<group>";
+		};
+		FB10D2D5227A00FD008038EA /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				FB10D2D02279FBBB008038EA /* ContactCell.swift */,
+				FB10D2B62279EF61008038EA /* ContactsViewController.swift */,
+				FB10D2CA2279F416008038EA /* AddContactViewController.swift */,
+				FB10D2CB2279F416008038EA /* AddContactViewController.xib */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +148,6 @@
 				FB10D2C12279EF62008038EA /* LaunchScreen.storyboard in Resources */,
 				FB10D2CD2279F416008038EA /* AddContactViewController.xib in Resources */,
 				FB10D2BE2279EF62008038EA /* Assets.xcassets in Resources */,
-				FB10D2D32279FBBB008038EA /* ContactCell.xib in Resources */,
 				FB10D2BC2279EF61008038EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

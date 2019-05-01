@@ -13,7 +13,7 @@ class ContactCell: UITableViewCell {
     static let identifier = "ContactCell"
 
     static func register(with tableView: UITableView) {
-        tableView.register(UINib(nibName: ContactCell.identifier, bundle: nil), forCellReuseIdentifier: ContactCell.identifier)
+        tableView.register(ContactCell.self, forCellReuseIdentifier: ContactCell.identifier)
     }
 
     static func dequeue(from tableView: UITableView, for indexPath: IndexPath, with contact: Contact) -> ContactCell {
@@ -22,12 +22,12 @@ class ContactCell: UITableViewCell {
         return cell
     }
 
-    @IBOutlet weak var nameField: UILabel!
-
     var contact: Contact? {
-        didSet { nameField.text = contact?.displayName }
+        didSet { textLabel?.text = contact?.displayName }
     }
 
-    override func prepareForReuse() { contact = nil }
+    override func prepareForReuse() {
+        contact = nil
+    }
 
 }
