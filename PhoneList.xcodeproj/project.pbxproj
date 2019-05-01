@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		FB10D2B52279EF61008038EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2B42279EF61008038EA /* AppDelegate.swift */; };
-		FB10D2B72279EF61008038EA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2B62279EF61008038EA /* FirstViewController.swift */; };
-		FB10D2B92279EF61008038EA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2B82279EF61008038EA /* SecondViewController.swift */; };
+		FB10D2B72279EF61008038EA /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2B62279EF61008038EA /* ContactsViewController.swift */; };
+		FB10D2B92279EF61008038EA /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2B82279EF61008038EA /* FamilyViewController.swift */; };
 		FB10D2BC2279EF61008038EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2BA2279EF61008038EA /* Main.storyboard */; };
 		FB10D2BE2279EF62008038EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2BD2279EF62008038EA /* Assets.xcassets */; };
 		FB10D2C12279EF62008038EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2BF2279EF62008038EA /* LaunchScreen.storyboard */; };
+		FB10D2C92279EFB1008038EA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2C82279EFB1008038EA /* Models.swift */; };
+		FB10D2CC2279F416008038EA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2CA2279F416008038EA /* AddContactViewController.swift */; };
+		FB10D2CD2279F416008038EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2CB2279F416008038EA /* AddContactViewController.xib */; };
+		FB10D2D22279FBBB008038EA /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2D02279FBBB008038EA /* ContactCell.swift */; };
+		FB10D2D32279FBBB008038EA /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2D12279FBBB008038EA /* ContactCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB10D2B12279EF61008038EA /* PhoneList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB10D2B42279EF61008038EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB10D2B62279EF61008038EA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FB10D2B82279EF61008038EA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FB10D2B62279EF61008038EA /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		FB10D2B82279EF61008038EA /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		FB10D2BB2279EF61008038EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB10D2BD2279EF62008038EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB10D2C02279EF62008038EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB10D2C22279EF62008038EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB10D2C82279EFB1008038EA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FB10D2CA2279F416008038EA /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		FB10D2CB2279F416008038EA /* AddContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
+		FB10D2D02279FBBB008038EA /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		FB10D2D12279FBBB008038EA /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				FB10D2B42279EF61008038EA /* AppDelegate.swift */,
-				FB10D2B62279EF61008038EA /* FirstViewController.swift */,
-				FB10D2B82279EF61008038EA /* SecondViewController.swift */,
+				FB10D2D02279FBBB008038EA /* ContactCell.swift */,
+				FB10D2D12279FBBB008038EA /* ContactCell.xib */,
+				FB10D2B62279EF61008038EA /* ContactsViewController.swift */,
+				FB10D2CA2279F416008038EA /* AddContactViewController.swift */,
+				FB10D2CB2279F416008038EA /* AddContactViewController.xib */,
+				FB10D2B82279EF61008038EA /* FamilyViewController.swift */,
+				FB10D2C82279EFB1008038EA /* Models.swift */,
 				FB10D2BA2279EF61008038EA /* Main.storyboard */,
 				FB10D2BD2279EF62008038EA /* Assets.xcassets */,
 				FB10D2BF2279EF62008038EA /* LaunchScreen.storyboard */,
@@ -126,7 +141,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB10D2C12279EF62008038EA /* LaunchScreen.storyboard in Resources */,
+				FB10D2CD2279F416008038EA /* AddContactViewController.xib in Resources */,
 				FB10D2BE2279EF62008038EA /* Assets.xcassets in Resources */,
+				FB10D2D32279FBBB008038EA /* ContactCell.xib in Resources */,
 				FB10D2BC2279EF61008038EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB10D2B92279EF61008038EA /* SecondViewController.swift in Sources */,
+				FB10D2D22279FBBB008038EA /* ContactCell.swift in Sources */,
+				FB10D2CC2279F416008038EA /* AddContactViewController.swift in Sources */,
+				FB10D2B92279EF61008038EA /* FamilyViewController.swift in Sources */,
 				FB10D2B52279EF61008038EA /* AppDelegate.swift in Sources */,
-				FB10D2B72279EF61008038EA /* FirstViewController.swift in Sources */,
+				FB10D2B72279EF61008038EA /* ContactsViewController.swift in Sources */,
+				FB10D2C92279EFB1008038EA /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
