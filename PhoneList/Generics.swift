@@ -13,6 +13,10 @@ import UIKit
 //   * Adder: A view controller that can gather info for Element
 //   * CellType: A cell that can show info for element
 
+struct DataStore<Element> {
+    var elements: [Element] = []
+}
+
 protocol AdderType: UIViewController {
     associatedtype Element
     init(completion: ((Element) -> Void)?)
@@ -28,7 +32,7 @@ class ListViewController<AdderVC: AdderType, Cell: CellType>: UIViewController, 
     where AdderVC.Element ==  Cell.Element
 {
     typealias Element = AdderVC.Element
-    var elements: [Element] = []
+    var dataStore = DataStore<Element>()
     var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -48,17 +52,17 @@ class ListViewController<AdderVC: AdderType, Cell: CellType>: UIViewController, 
 
     @objc func addNew() {
         let vc = AdderVC {
-            self.elements.append($0)
+            self.dataStore.elements.append($0)
             self.tableView.reloadData()
         }
         present(vc, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elements.count
+        return dataStore.elements.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return Cell.dequeue(from: tableView, for: indexPath, with: elements[indexPath.row])
+        return Cell.dequeue(from: tableView, for: indexPath, with: dataStore.elements[indexPath.row])
     }
 }
