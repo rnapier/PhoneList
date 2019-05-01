@@ -12,12 +12,15 @@ import UIKit
 //   * ListViewController: Lists a bunch of things in cells, and lets you add new ones with some "adder"
 //   * Adder: A view controller that can gather info for Element
 //   * CellType: A cell that can show info for element
+//   * DataStore: a generic way to store elements and return animation-driving changes.
 
+// A change to the datastore that you may want to animate
 enum DataStoreChange {
     case insert(Int)
     // TODO: delete and move operations
 }
 
+// Animations for table views
 extension Array where Element == DataStoreChange {
     func apply(to tableView: UITableView) {
         for change in self {
@@ -29,11 +32,13 @@ extension Array where Element == DataStoreChange {
     }
 }
 
+// An arbitary storage for elements. Could be Core Data. Could be UserDefaults. Could be static.
 protocol DataStoreType: Collection where Index == Int {
     init() // this is because of Storyboards. I don't like it. Programmatically, it wouldn't be needed because it could be configurated in the view controller init().
     mutating func insert(_ element: Element) -> [DataStoreChange]
 }
 
+// A static implementation of DataStore.
 struct StaticDataStore<Element>: DataStoreType {
     private var elements: [Element] = []
 
@@ -56,11 +61,13 @@ extension StaticDataStore: Collection {
     }
 }
 
+// Something that can add a new element.
 protocol AdderType: UIViewController {
     associatedtype Element
     init(completion: ((Element) -> Void)?)
 }
 
+// A cell to display an element
 protocol CellType: UITableViewCell {
     associatedtype Element
     static func register(with: UITableView)
