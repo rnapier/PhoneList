@@ -13,8 +13,47 @@ import UIKit
 //   * Adder: A view controller that can gather info for Element
 //   * CellType: A cell that can show info for element
 
-struct DataStore<Element> {
-    var elements: [Element] = []
+enum DataStoreChange {
+    case insert(Int)
+    // TODO: delete and move operations
+}
+
+extension Array where Element == DataStoreChange {
+    func apply(to tableView: UITableView) {
+        for change in self {
+            switch change {
+            case .insert(let row):
+                tableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+            }
+        }
+    }
+}
+
+protocol DataStoreType: Collection where Index == Int {
+    init() // this is because of Storyboards. I don't like it. Programmatically, it wouldn't be needed because it could be configurated in the view controller init().
+    mutating func insert(_ element: Element) -> [DataStoreChange]
+}
+
+struct StaticDataStore<Element>: DataStoreType {
+    private var elements: [Element] = []
+
+    // Don't allow aribitrary insert points. This is up to the data store (it might be sorted)
+    mutating func insert(_ element: Element) -> [DataStoreChange]{
+        let row = elements.count
+        elements.append(element)
+        return [.insert(row)]
+    }
+}
+
+extension StaticDataStore: Collection {
+    var startIndex: Int { return elements.startIndex }
+    var endIndex: Int { return elements.endIndex }
+    func index(after i: Int) -> Int {
+        return elements.index(after: i)
+    }
+    subscript(_ i: Int) -> Element {
+        return elements[i]
+    }
 }
 
 protocol AdderType: UIViewController {
@@ -28,11 +67,13 @@ protocol CellType: UITableViewCell {
     static func dequeue(from: UITableView, for: IndexPath, with: Element) -> Self
 }
 
-class ListViewController<AdderVC: AdderType, Cell: CellType>: UIViewController, UITableViewDataSource
-    where AdderVC.Element ==  Cell.Element
+// Generic list controller that shows a list of things and lets you add them.
+class ListViewController<DataStore: DataStoreType, AdderVC: AdderType, Cell: CellType>: UIViewController, UITableViewDataSource
+    where AdderVC.Element ==  Cell.Element,
+    AdderVC.Element == DataStore.Element
 {
     typealias Element = AdderVC.Element
-    var dataStore = DataStore<Element>()
+    var dataStore = DataStore() // I don't like this. It's because of storyboards.
     var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -51,18 +92,15 @@ class ListViewController<AdderVC: AdderType, Cell: CellType>: UIViewController, 
     }
 
     @objc func addNew() {
-        let vc = AdderVC {
-            self.dataStore.elements.append($0)
-            self.tableView.reloadData()
-        }
+        let vc = AdderVC { self.dataStore.insert($0).apply(to: self.tableView) }
         present(vc, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStore.elements.count
+        return dataStore.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return Cell.dequeue(from: tableView, for: indexPath, with: dataStore.elements[indexPath.row])
+        return Cell.dequeue(from: tableView, for: indexPath, with: dataStore[indexPath.row])
     }
 }
