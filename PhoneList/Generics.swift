@@ -75,6 +75,13 @@ protocol CellType: UITableViewCell {
 }
 
 // Generic list controller that shows a list of things and lets you add them.
+// This has a lot of interesting trade-offs. All the concrete types are nailed down at compile-time. That makes
+// them very clear, but also means they can't be modified at runtime. It's conceivable that you'd want the
+// DataStore to change at runtime (though I would lean towards doing that with composition rather than protocols).
+// There are a lot of type parameters here, which is not great (especially since type parameters can't have defaults
+// and don't have labels). If it weren't for storyboards, we could make some of the ergonomics better there. Even
+// so, one could imagine GETs making this a little less wordy (though I think you'd have to actually try it to see
+// if that's true).
 class ListViewController<DataStore: DataStoreType, AdderVC: AdderType, Cell: CellType>: UIViewController, UITableViewDataSource
     where AdderVC.Element ==  Cell.Element,
     AdderVC.Element == DataStore.Element
