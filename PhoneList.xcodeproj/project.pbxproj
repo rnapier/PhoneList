@@ -17,6 +17,7 @@
 		FB10D2CC2279F416008038EA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2CA2279F416008038EA /* AddContactViewController.swift */; };
 		FB10D2CD2279F416008038EA /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB10D2CB2279F416008038EA /* AddContactViewController.xib */; };
 		FB10D2D22279FBBB008038EA /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2D02279FBBB008038EA /* ContactCell.swift */; };
+		FB10D2D7227A13CB008038EA /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB10D2D6227A13CB008038EA /* Generics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FB10D2CA2279F416008038EA /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		FB10D2CB2279F416008038EA /* AddContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
 		FB10D2D02279FBBB008038EA /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		FB10D2D6227A13CB008038EA /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				FB10D2B42279EF61008038EA /* AppDelegate.swift */,
+				FB10D2D6227A13CB008038EA /* Generics.swift */,
 				FB10D2D5227A00FD008038EA /* Contact */,
-				FB10D2B82279EF61008038EA /* FamilyViewController.swift */,
+				FB10D2D8227A140A008038EA /* Family */,
 				FB10D2C82279EFB1008038EA /* Models.swift */,
 				FB10D2BA2279EF61008038EA /* Main.storyboard */,
 				FB10D2BD2279EF62008038EA /* Assets.xcassets */,
@@ -79,12 +82,20 @@
 		FB10D2D5227A00FD008038EA /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				FB10D2D02279FBBB008038EA /* ContactCell.swift */,
 				FB10D2B62279EF61008038EA /* ContactsViewController.swift */,
 				FB10D2CA2279F416008038EA /* AddContactViewController.swift */,
 				FB10D2CB2279F416008038EA /* AddContactViewController.xib */,
+				FB10D2D02279FBBB008038EA /* ContactCell.swift */,
 			);
 			path = Contact;
+			sourceTree = "<group>";
+		};
+		FB10D2D8227A140A008038EA /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				FB10D2B82279EF61008038EA /* FamilyViewController.swift */,
+			);
+			path = Family;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 			files = (
 				FB10D2D22279FBBB008038EA /* ContactCell.swift in Sources */,
 				FB10D2CC2279F416008038EA /* AddContactViewController.swift in Sources */,
+				FB10D2D7227A13CB008038EA /* Generics.swift in Sources */,
 				FB10D2B92279EF61008038EA /* FamilyViewController.swift in Sources */,
 				FB10D2B52279EF61008038EA /* AppDelegate.swift in Sources */,
 				FB10D2B72279EF61008038EA /* ContactsViewController.swift in Sources */,

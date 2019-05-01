@@ -15,7 +15,7 @@ class AddContactViewController: UIViewController {
 
     var completion: ((Contact) -> Void)?
 
-    init(completion: ((Contact) -> Void)?) {
+    required init(completion: ((Contact) -> Void)?) {
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
     }
