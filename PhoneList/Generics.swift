@@ -8,6 +8,11 @@
 
 import UIKit
 
+// A generic stack including:
+//   * ListViewController: Lists a bunch of things in cells, and lets you add new ones with some "adder"
+//   * Adder: A view controller that can gather info for Element
+//   * CellType: A cell that can show info for element
+
 protocol AdderType: UIViewController {
     associatedtype Element
     init(completion: ((Element) -> Void)?)
@@ -19,10 +24,10 @@ protocol CellType: UITableViewCell {
     static func dequeue(from: UITableView, for: IndexPath, with: Element) -> Self
 }
 
-class ListViewController<Element, AdderVC: AdderType, Cell: CellType>: UIViewController, UITableViewDataSource
-    where AdderVC.Element == Element,
-    Cell.Element == Element
+class ListViewController<AdderVC: AdderType, Cell: CellType>: UIViewController, UITableViewDataSource
+    where AdderVC.Element ==  Cell.Element
 {
+    typealias Element = AdderVC.Element
     var elements: [Element] = []
     var tableView: UITableView!
 

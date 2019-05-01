@@ -11,4 +11,5 @@ import UIKit
 extension AddContactViewController: AdderType {}
 extension ContactCell: CellType {}
 
-class ContactsViewController: ListViewController<Contact, AddContactViewController, ContactCell> {}
+// Subclassing is required here for storyboards. If this were programmatic, it could be a typealias.
+class ContactsViewController: ListViewController<AddContactViewController, ContactCell> {}
